@@ -78,6 +78,9 @@ type FullAlbum struct {
 	Copyrights []Copyright     `json:"copyrights"`
 	Genres     []string        `json:"genres"`
 	Tracks     SimpleTrackPage `json:"tracks"`
+	// ExternalIDs are IDs for this album in other databases, keyed by type
+	// (for example "upc").
+	ExternalIDs map[string]string `json:"external_ids"`
 }
 
 // SavedAlbum provides info about an album saved to a user's account.
