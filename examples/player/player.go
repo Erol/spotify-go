@@ -100,8 +100,10 @@ func main() {
 		fmt.Printf("Found your %s (%s)\n", playerState.Device.Type, playerState.Device.Name)
 	}()
 
-	http.ListenAndServe(":8080", nil)
-
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func completeAuth(w http.ResponseWriter, r *http.Request) {

@@ -77,7 +77,7 @@ func TestGetPlaylist(t *testing.T) {
 	}
 
 	// Ensure the Description field is also present in the SimplePlaylist part of the object
-	if p.SimplePlaylist.Description != "Bit of a overlap with phonk but whatever" {
+	if p.Description != "Bit of a overlap with phonk but whatever" {
 		t.Error("Description is invalid in the SimplePlaylist part of the object")
 	}
 }

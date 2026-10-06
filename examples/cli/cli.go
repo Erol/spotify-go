@@ -1,4 +1,4 @@
-package cli
+package main
 
 import (
 	"context"
@@ -26,6 +26,9 @@ func main() {
 func Authorize(code string) error {
 	ctx := context.Background()
 	token, err := auth.Exchange(ctx, code)
+	if err != nil {
+		return err
+	}
 	httpClient := oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(token))
 	client := spotify.New(httpClient)
 

@@ -41,7 +41,12 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("Got request for:", r.URL.String())
 	})
-	go http.ListenAndServe(":8080", nil)
+	go func() {
+		err := http.ListenAndServe(":8080", nil)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	url := auth.AuthURL(state,
 		oauth2.SetAuthURLParam("code_challenge_method", "S256"),

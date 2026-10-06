@@ -14,7 +14,7 @@ func TestGetShow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if r.SimpleShow.Name != "Uncommon Core" {
+	if r.Name != "Uncommon Core" {
 		t.Error("Invalid data:", r.Name)
 	}
 	if len(r.Episodes.Episodes) != 25 {
