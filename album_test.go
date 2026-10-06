@@ -25,6 +25,14 @@ func TestFindAlbum(t *testing.T) {
 	if released.Year() != 1983 {
 		t.Errorf("Expected release date 1983, got %d\n", released.Year())
 	}
+	upc := "5099749994324"
+	u, ok := album.ExternalIDs["upc"]
+	if !ok {
+		t.Error("External IDs missing UPC")
+	}
+	if u != upc {
+		t.Errorf("Wrong UPC: want %s, got %s\n", upc, u)
+	}
 }
 
 func TestFindAlbumBadID(t *testing.T) {

@@ -6,6 +6,13 @@ import (
 	"time"
 )
 
+// TrackExternalIDs contains known external IDs for a track.
+type TrackExternalIDs struct {
+	ISRC string `json:"isrc"`
+	EAN  string `json:"ean"`
+	UPC  string `json:"upc"`
+}
+
 // SimpleTrack contains basic info about a track.
 type SimpleTrack struct {
 	Album   SimpleAlbum    `json:"album"`
@@ -41,6 +48,9 @@ func (st SimpleTrack) String() string {
 // FullTrack provides extra track data in addition to what is provided by [SimpleTrack].
 type FullTrack struct {
 	SimpleTrack
+
+	// ExternalIDs are IDs for this track in other databases.
+	ExternalIDs TrackExternalIDs `json:"external_ids"`
 
 	// IsPlayable is included when [Track Relinking] is applied, and reports if
 	// the track is playable. It's reported when the "market" parameter is

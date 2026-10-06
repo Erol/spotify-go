@@ -18,6 +18,10 @@ func TestFindTrack(t *testing.T) {
 	if track.Name != "Timber" {
 		t.Errorf("Wanted track Timer, got %s\n", track.Name)
 	}
+	isrc := "USRC11301695"
+	if i := track.ExternalIDs.ISRC; i != isrc {
+		t.Errorf("Wrong ISRC: want %s, got %s\n", isrc, i)
+	}
 }
 
 func TestFindTrackWithFloats(t *testing.T) {
