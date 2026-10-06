@@ -10,12 +10,12 @@ package main
 import (
 	"context"
 	"fmt"
-	spotifyauth "github.com/zmb3/spotify/v2/auth"
+	spotifyauth "github.com/Erol/spotify-go/v2/auth"
 	"log"
 	"net/http"
 	"strings"
 
-	"github.com/zmb3/spotify/v2"
+	"github.com/Erol/spotify-go/v2"
 )
 
 // redirectURI is the OAuth redirect URI for the application.
@@ -117,6 +117,6 @@ func completeAuth(w http.ResponseWriter, r *http.Request) {
 	// use the token to get an authenticated client
 	client := spotify.New(auth.Client(r.Context(), tok))
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(w, "Login Completed!"+html)
+	fmt.Fprint(w, "Login Completed!"+html)
 	ch <- client
 }
