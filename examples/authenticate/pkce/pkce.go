@@ -9,14 +9,14 @@ package main
 import (
 	"context"
 	"fmt"
-	spotifyauth "github.com/zmb3/spotify/v2/auth"
+	spotifyauth "github.com/Erol/spotify-go/v2/auth"
 	"log"
 	"os"
 	"net/http"
 
 	"golang.org/x/oauth2"
 
-	"github.com/zmb3/spotify/v2"
+	"github.com/Erol/spotify-go/v2"
 )
 
 // redirectURI is the OAuth redirect URI for the application.
@@ -41,7 +41,12 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println("Got request for:", r.URL.String())
 	})
-	go http.ListenAndServe(":8080", nil)
+	go func() {
+		err := http.ListenAndServe(":8080", nil)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	url := auth.AuthURL(state,
 		oauth2.SetAuthURLParam("code_challenge_method", "S256"),

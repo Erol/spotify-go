@@ -1,10 +1,10 @@
-package cli
+package main
 
 import (
 	"context"
 	"flag"
-	"github.com/zmb3/spotify/v2"
-	spotifyauth "github.com/zmb3/spotify/v2/auth"
+	"github.com/Erol/spotify-go/v2"
+	spotifyauth "github.com/Erol/spotify-go/v2/auth"
 	"golang.org/x/oauth2"
 	"log"
 )
@@ -26,6 +26,9 @@ func main() {
 func Authorize(code string) error {
 	ctx := context.Background()
 	token, err := auth.Exchange(ctx, code)
+	if err != nil {
+		return err
+	}
 	httpClient := oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(token))
 	client := spotify.New(httpClient)
 

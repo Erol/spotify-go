@@ -1,16 +1,12 @@
 
-Spotify
+spotify-go
 =======
-> [!NOTE]
-> This is a fork of [zmb3/spotify](https://github.com/zmb3/spotify) with fixes from [janvrska/spotify](https://github.com/janvrska/spotify/tree/master)
-> for [Spotify's Feb 2026s breaking changes to their API](https://developer.spotify.com/documentation/web-api/references/changes/february-2026).
+> This is a fork of [jdcukier/spotify](https://github.com/jdcukier/spotify).
 >
-> Unfortunately the original [zmb3/spotify](https://github.com/zmb3/spotify) no longer seems to be actively reviewing/merging PRs, so here we are.
->
-> I may make small updates as needed, but all credits for the code go to those listed above. 
+> All credits for the code go to those listed above.
 
 
-[![GoDoc](https://godoc.org/github.com/zmb3/spotify?status.svg)](http://godoc.org/github.com/zmb3/spotify)
+[![GoDoc](https://pkg.go.dev/badge/github.com/Erol/spotify-go/v2.svg)](https://pkg.go.dev/github.com/Erol/spotify-go/v2)
 
 This is a Go wrapper for working with Spotify's
 [Web API](https://developer.spotify.com/web-api/).
@@ -25,7 +21,7 @@ By using this library you agree to Spotify's
 
 To install the library, simply
 
-`go get github.com/zmb3/spotify/v2`
+`go get github.com/Erol/spotify-go/v2`
 
 ## Authentication
 
